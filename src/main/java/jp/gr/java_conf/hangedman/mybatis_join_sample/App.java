@@ -9,6 +9,7 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import jp.gr.java_conf.hangedman.mybatis_join_sample.model.Person;
+import jp.gr.java_conf.hangedman.mybatis_join_sample.model.PersonSkill;
 import jp.gr.java_conf.hangedman.mybatis_join_sample.model.Skill;
 
 /**
@@ -32,6 +33,12 @@ public class App {
 				for (Skill s : skills) {
 					System.out.println(s.toString());
 				}
+
+				List<PersonSkill> pskills = session
+						.selectList("jp.gr.java_conf.hangedman.mybatis_join_sample.mappers.PersonSkillMapper.selectList");
+				for (PersonSkill ps : pskills) {
+					System.out.println(ps.toString());
+				}			
 			}
 		}
 	}

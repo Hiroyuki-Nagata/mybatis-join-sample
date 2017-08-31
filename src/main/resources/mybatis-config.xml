@@ -6,7 +6,10 @@
 
 	<typeAliases>	
 		<typeAlias type="jp.gr.java_conf.hangedman.mybatis_join_sample.model.Person" alias="Person" />
-		<typeAlias type="jp.gr.java_conf.hangedman.mybatis_join_sample.model.Skill" alias="Skill" />		
+		<typeAlias type="jp.gr.java_conf.hangedman.mybatis_join_sample.model.Skill" alias="Skill" />
+		
+		<!-- LEFT JOINされたデータを表す -->
+		<typeAlias type="jp.gr.java_conf.hangedman.mybatis_join_sample.model.PersonSkill" alias="PersonSkill" />		
 	</typeAliases>
 	
 	<environments default="development">
@@ -22,8 +25,8 @@
 	</environments>
 	
 	<mappers>
-		<!-- package name="jp.gr.java_conf.hangedman.mybatis_join_sample.mappers" /-->
-		<mapper resource="jp/gr/java_conf/hangedman/mybatis_join_sample/mappers/PersonMapper.xml" />
-		<mapper resource="jp/gr/java_conf/hangedman/mybatis_join_sample/mappers/SkillMapper.xml" />
+		<package name="jp.gr.java_conf.hangedman.mybatis_join_sample.mappers" />
+<!-- 		<mapper resource="jp/gr/java_conf/hangedman/mybatis_join_sample/mappers/PersonMapper.xml" /> -->
+<!-- 		<mapper resource="jp/gr/java_conf/hangedman/mybatis_join_sample/mappers/SkillMapper.xml" /> -->
 	</mappers>	
 </configuration>

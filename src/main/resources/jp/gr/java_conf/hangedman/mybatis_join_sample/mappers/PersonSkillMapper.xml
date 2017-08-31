@@ -1,18 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="jp.gr.java_conf.hangedman.mybatis_join_sample.mappers.PersonMapper">
-	<resultMap id="personResultMap" type="Person">
+<mapper namespace="jp.gr.java_conf.hangedman.mybatis_join_sample.mappers.PersonSkillMapper">
+	<resultMap id="personSkillResultMap" type="PersonSkill">
 		<result property="id"        column="id" />
 		<result property="firstName" column="first_name" />
 		<result property="lastName"  column="last_name" />
 		<result property="kind"      column="kind" />
 		<result property="age"       column="age" />
+		<result property="skillId"   column="skill_id" />
+		<result property="desc"      column="desc" />
 	</resultMap>
-	<select id="selectList" resultMap="personResultMap">
+	<select id="selectList" resultMap="personSkillResultMap">
 		SELECT
-		  * 
-		FROM `person`
-
+			p.*
+			, s.id AS skill_id
+			, s.desc AS desc 
+		FROM `person` p
+		
+		LEFT JOIN `skill` s
+		ON s.person_id = p.id
 	</select>
 </mapper>
