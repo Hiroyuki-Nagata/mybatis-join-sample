@@ -21,4 +21,5 @@
 * `flyway` を以下のように実行する
 
 	mvn flyway:info -Dflyway.configFile=flyway.properties
+
 	mvn flyway:migrate -Dflyway.configFile=flyway.properties
