@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+  
+<configuration>
+	<properties resource="jdbc.properties"/>
+
+	<typeAliases>	
+		<typeAlias type="jp.gr.java_conf.hangedman.mybatis_join_sample.model.Person" alias="Person" />
+		<typeAlias type="jp.gr.java_conf.hangedman.mybatis_join_sample.model.Skill" alias="Skill" />		
+	</typeAliases>
+	
+	<environments default="development">
+		<environment id="development">
+			<transactionManager type="JDBC" />
+			<dataSource type="POOLED">
+				<property name="driver" value="${jdbc.driver}" />
+				<property name="url" value="${jdbc.url}" />
+				<property name="username" value="${jdbc.username}" />
+				<property name="password" value="${jdbc.password}" />
+			</dataSource>
+		</environment>
+	</environments>
+	
+	<mappers>
+		<!-- package name="jp.gr.java_conf.hangedman.mybatis_join_sample.mappers" /-->
+		<mapper resource="jp/gr/java_conf/hangedman/mybatis_join_sample/mappers/PersonMapper.xml" />
+		<mapper resource="jp/gr/java_conf/hangedman/mybatis_join_sample/mappers/SkillMapper.xml" />
+	</mappers>	
+</configuration>

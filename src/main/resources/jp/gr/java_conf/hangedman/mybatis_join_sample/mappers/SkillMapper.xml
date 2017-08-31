@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="jp.gr.java_conf.hangedman.mybatis_join_sample.mappers.SkillMapper">
+	<resultMap id="skillResultMap" type="jp.gr.java_conf.hangedman.mybatis_join_sample.model.Skill">
+		<result property="id"        column="id" />
+		<result property="personId"  column="person_id" />
+		<result property="desc"      column="desc" />
+	</resultMap>
+	<select id="selectList" resultMap="skillResultMap">
+		SELECT
+		  * 
+		FROM `skill`
+
+	</select>
+</mapper>
