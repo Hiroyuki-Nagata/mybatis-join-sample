@@ -9,7 +9,10 @@
 		<typeAlias type="jp.gr.java_conf.hangedman.mybatis_join_sample.model.Skill" alias="Skill" />
 		
 		<!-- LEFT JOINされたデータを表す -->
-		<typeAlias type="jp.gr.java_conf.hangedman.mybatis_join_sample.model.PersonSkill" alias="PersonSkill" />		
+		<typeAlias type="jp.gr.java_conf.hangedman.mybatis_join_sample.model.PersonSkill" alias="PersonSkill" />
+		
+		<!-- Date型をもつ -->
+		<typeAlias type="jp.gr.java_conf.hangedman.mybatis_join_sample.model.Employees" alias="Employees" />
 	</typeAliases>
 	
 	<environments default="development">

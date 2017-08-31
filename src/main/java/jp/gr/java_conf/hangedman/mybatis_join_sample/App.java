@@ -8,6 +8,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
+import jp.gr.java_conf.hangedman.mybatis_join_sample.model.Employees;
 import jp.gr.java_conf.hangedman.mybatis_join_sample.model.Person;
 import jp.gr.java_conf.hangedman.mybatis_join_sample.model.PersonSkill;
 import jp.gr.java_conf.hangedman.mybatis_join_sample.model.Skill;
@@ -17,7 +18,12 @@ import jp.gr.java_conf.hangedman.mybatis_join_sample.model.Skill;
  *
  */
 public class App {
-	public static void main(String[] args) throws IOException {
+	
+	/**
+	 * 単純なLEFT JOINのテスト
+	 * @throws IOException
+	 */
+	private static void test1() throws IOException {
 		try (InputStream in = App.class.getResourceAsStream("/mybatis-config.xml")) {
 			// 設定ファイルを元に、 SqlSessionFactory を作成する
 			SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(in);
@@ -40,6 +46,26 @@ public class App {
 					System.out.println(ps.toString());
 				}			
 			}
+		}		
+	}
+	
+	private static void test2() throws IOException {
+		try (InputStream in = App.class.getResourceAsStream("/mybatis-config.xml")) {
+			// 設定ファイルを元に、 SqlSessionFactory を作成する
+			SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(in);
+
+			try (SqlSession session = factory.openSession()) {
+				List<Employees> emps = session
+						.selectList("jp.gr.java_conf.hangedman.mybatis_join_sample.mappers.EmployeesMapper.selectList");
+				for (Employees e : emps) {
+					System.out.println(e.toString());
+				}
+			}
 		}
+	}
+	
+	public static void main(String[] args) throws IOException {
+		test1();
+		test2();
 	}
 }
